@@ -1,10 +1,8 @@
-from collections import defaultdict
 import pickle
 
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
