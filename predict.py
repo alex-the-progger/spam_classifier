@@ -1,4 +1,5 @@
-from preprocess_data import load_variable, vectorize_sentence
+from constants import *
+from preprocess_data import load_variable
 
 classifier = load_variable('classifiers/svc.pickle')
 
@@ -8,8 +9,10 @@ while True:
     if not sentence:
         break
 
-    vector = vectorize_sentence(sentence)
-    result = classifier.predict([vector])[0]
+    text_encoder = load_variable(TEXT_ENCODER_FILE)
+
+    vector = text_encoder.transform([sentence])
+    result = classifier.predict(vector)[0]
 
     if result:
         print('This is spam')
